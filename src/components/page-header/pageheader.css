@@ -1,0 +1,38 @@
+.page-header {
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: center/center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.page-header ul {
+  display: flex;
+}
+.page-header li:not(:first-child) ::before {
+  content: "\2022";
+  color: #56bd97;
+  padding: 0 15px;
+  font-weight: bold;
+  display: inline-block;
+}
+.page-header a {
+  color: #fff;
+  font-size: 1.2em;
+}
+.page-header a:hover,
+.page-header a:active {
+  color: #56bd97;
+  text-decoration: underline;
+}
+
+.page-header h2 {
+  font-size: 3.5em;
+}
+

@@ -1,0 +1,44 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+.input-label {
+  font-size: 1.05rem;
+}
+.input,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid #b0b1b3;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 400;
+  color: #98a9bc;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+textarea {
+  height: 150px;
+}
+.input:invalid {
+  border-color: #d71e0e;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .form-group {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+

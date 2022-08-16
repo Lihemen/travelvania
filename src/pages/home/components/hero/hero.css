@@ -1,0 +1,28 @@
+.hero {
+  background: url("/src/assets/images/hero.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.tagline {
+  color: #f9e351;
+  font-size: 2em;
+  font-family: "Cedarville Cursive", "cursive";
+  font-style: italic;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 4em;
+}
+
