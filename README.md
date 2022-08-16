@@ -34,7 +34,7 @@ npm install
 
 ## Preview
 
-The application can be viewed [here](https://travelvania.herokuapp.com/).
+The application can be viewed [here](https://travelvania.netlify.app/).
 
 ## Author
 
