@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink, NavLinkProps } from "react-router-dom";
 
+import "./mobilemenu.css";
+
 interface Props extends NavLinkProps {
   to: string;
   name: string;
@@ -12,7 +14,7 @@ const ActiveNavLink: React.FC<Props> = ({ to, name }) => {
       <NavLink
         to={to}
         className="navbar-link"
-        style={({ isActive }) => (isActive ? { color: "red" } : {})}
+        style={({ isActive }) => (isActive ? { color: "#56BD97" } : {})}
       >
         {name}
       </NavLink>
@@ -20,18 +22,20 @@ const ActiveNavLink: React.FC<Props> = ({ to, name }) => {
   );
 };
 
-export const MobileMenu = () => {
+type MenuProps = {
+  show: boolean;
+};
+
+export const MobileMenu: React.FC<MenuProps> = (props) => {
   return (
-    <aside className="more">
-      <nav>
-        <ul>
-          <ActiveNavLink to="/" name="home" />
-          <ActiveNavLink to="/about" name="about" />
-          <ActiveNavLink to="/hotels" name="hotels" />
-          <ActiveNavLink to="/contact" name="contact" />
-        </ul>
-      </nav>
-    </aside>
+    <nav className={`mobile-menu ${props.show && "toggle"}`}>
+      <ul>
+        <ActiveNavLink to="/" name="home" />
+        <ActiveNavLink to="/about" name="about" />
+        <ActiveNavLink to="/hotels" name="hotels" />
+        <ActiveNavLink to="/contact" name="contact" />
+      </ul>
+    </nav>
   );
 };
 

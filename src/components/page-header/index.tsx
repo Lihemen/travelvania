@@ -23,7 +23,7 @@ export default function PageHeader(props: Props) {
         </li>
         {props.parent_link && (
           <li>
-            <Link to={`${props.parent_link}`}>{props.parent_link}</Link>
+            <Link to={`/${props.parent_link}`}>{props.parent_link}</Link>
           </li>
         )}
         <li>

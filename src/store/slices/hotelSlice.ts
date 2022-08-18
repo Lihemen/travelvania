@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { Hotel } from "../../types";
 
-export const hotelSlice = createSlice({
+const hotelSlice = createSlice({
   name: "hotel",
   initialState: [] as Hotel[],
   reducers: {
@@ -16,4 +16,8 @@ export const hotelSlice = createSlice({
     updateHotel: (state, action) => {},
   },
 });
+
+export const { createHotel, deleteHotel, updateHotel } = hotelSlice.actions;
+
+export const hotelReducer = hotelSlice.reducer;
 

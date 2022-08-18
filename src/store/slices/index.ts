@@ -1,7 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import { userSlice } from "./userSlice";
+import { userReducer } from "./userSlice";
+import { hotelReducer } from "./hotelSlice";
 
 export const rootReducer = combineReducers({
-  user: userSlice.reducer,
+  userReducer,
+  hotelReducer,
 });
+
