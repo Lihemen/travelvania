@@ -1,15 +1,21 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
 import { Glimmer } from "./components/glimmer";
-import "./App.css";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
+
 import { Error404 } from "./pages/not-found";
 
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
+
 const Home = lazy(() => import("./pages/home"));
-const HotelsList = lazy(() => import("./pages/hotels-list"));
+const HotelsList = lazy(() => import("./pages/hotels"));
 const Signin = lazy(() => import("./pages/sign-in"));
 const Signup = lazy(() => import("./pages/sign-up"));
+const AddHotelForm = lazy(() => import("./pages/hotels/create-hotel"));
 
 function App() {
   return (
@@ -17,7 +23,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="hotels" element={<HotelsList />} />
+        <Route path="hotels">
+          <Route index element={<HotelsList />} />
+          <Route path="create" element={<AddHotelForm />} />
+        </Route>
         <Route path="auth">
           <Route index element={<Signin />} />
           <Route path="sign-up" element={<Signup />} />
@@ -26,6 +35,8 @@ function App() {
         <Route path="*" element={<Navigate to="/not-found" replace />} />
       </Routes>
       <Footer />
+
+      <ToastContainer autoClose={1000} />
     </Suspense>
   );
 }

@@ -4,7 +4,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   color: #fff;
   display: flex;
   align-items: center;
@@ -24,5 +24,53 @@
 
 .title {
   font-size: 4em;
+}
+
+.hero label {
+  color: #dbdfe6;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: block;
+  padding-bottom: 10px;
+}
+
+.reservation-checker {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  gap: 2px;
+  align-items: flex-end;
+  text-align: left;
+}
+.reservation-checker .input {
+  width: 200px;
+  height: 60px;
+  padding: 1.5rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 400;
+  color: #121212;
+  background: #eee;
+  transition: all 0.2s ease-in-out;
+}
+.reservation-checker input {
+  border-radius: 0;
+}
+
+.reservation-checker > button {
+  background-color: #32aad6;
+  height: 60px;
+  border: none;
+  margin: 1px;
+}
+
+@media (max-width: 921px) {
+  .reservation-checker {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .title {
+    font-size: 3em;
+  }
 }
 

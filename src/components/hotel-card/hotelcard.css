@@ -1,2 +1,46 @@
 .card {
+  transition: all 0.1s linear;
 }
+.card-content {
+  padding: 2rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-country {
+  color: #ddd;
+}
+
+.card-footer {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.card-footer a {
+  color: #ddd;
+}
+
+.card img {
+  transform: translateY(-20px);
+}
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.card:hover img {
+  transform: translateY(0);
+  opacity: 0.5;
+}
+
