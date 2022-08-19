@@ -1,0 +1,48 @@
+.hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 4rem 0;
+}
+
+.no-hotels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  margin: 5rem 0;
+  background-color: #f3efea;
+  text-align: center;
+}
+
+.no-hotels h3 {
+  font-size: 3rem;
+}
+.no-hotels a {
+  padding: 10px 30px;
+  background-color: #111;
+  color: #fff;
+}
+
+.filter {
+  margin-top: 3rem;
+}
+
+@media (max-width: 921px) {
+  .hotels-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hotels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hotels-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

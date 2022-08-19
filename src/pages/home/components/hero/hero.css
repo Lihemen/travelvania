@@ -17,7 +17,7 @@
 .tagline {
   color: #f9e351;
   font-size: 2em;
-  font-family: "Cedarville Cursive", "cursive";
+  font-family: var(--cursive);
   font-style: italic;
   font-weight: 400;
 }
@@ -38,31 +38,25 @@
   display: grid;
   grid-template-columns: repeat(4, 200px);
   gap: 2px;
-  align-items: flex-end;
+  align-items: center;
   text-align: left;
 }
-.reservation-checker .input {
+.reservation-checker .form-input {
   width: 200px;
-  height: 60px;
-  padding: 1.5rem 1rem;
   border: none;
   outline: none;
   font-size: 1rem;
-  font-family: inherit;
   font-weight: 400;
   color: #121212;
-  background: #eee;
-  transition: all 0.2s ease-in-out;
+  margin-bottom: 0;
 }
-.reservation-checker input {
-  border-radius: 0;
+.clearfix {
+  padding-top: 20px;
 }
 
-.reservation-checker > button {
-  background-color: #32aad6;
-  height: 60px;
+.clearfix button {
   border: none;
-  margin: 1px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 921px) {

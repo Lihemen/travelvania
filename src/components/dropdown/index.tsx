@@ -7,6 +7,7 @@ type Props = {
   id: string;
   name: string;
   defaultValue: string;
+  required?: boolean;
 };
 
 interface Option {
@@ -19,13 +20,13 @@ export const Dropdown: React.FC<Props> = (props) => {
 
   return (
     <div className="input-group">
-      <label htmlFor={props.name || props.id} className="form-label">
+      <label htmlFor={props.name || props.id} className="input-label">
         {props.label}{" "}
       </label>
       <select
         {...field}
         {...props}
-        className="input"
+        className="form-input"
         defaultValue={props.defaultValue}
       >
         <option value="" disabled>

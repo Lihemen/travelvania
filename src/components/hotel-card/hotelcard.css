@@ -1,10 +1,12 @@
 .card {
   transition: all 0.1s linear;
+  border: 1px solid #ddd;
 }
 .card-content {
-  padding: 2rem;
   text-align: left;
   text-transform: uppercase;
+  margin: 20px;
+  border-bottom: 1px solid #ddd;
 }
 
 .card-image {
@@ -19,28 +21,31 @@
 }
 
 .card-country {
-  color: #ddd;
+  color: #777;
 }
 
 .card-footer {
   border: 1px solid #ddd;
   text-align: center;
   padding: 10px;
-  width: 100%;
+  align-self: center;
+  margin: 20px;
+  transition: all 0.15s ease-in-out;
 }
 
 .card-footer a {
   color: #ddd;
+  width: 100%;
+  display: block;
+  height: 100%;
 }
 
-.card img {
-  transform: translateY(-20px);
-}
 .card:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
-.card:hover img {
-  transform: translateY(0);
-  opacity: 0.5;
+
+.card:hover .card-footer {
+  background-color: #121212;
 }
 

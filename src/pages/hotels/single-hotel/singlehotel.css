@@ -1,0 +1,91 @@
+.single-hotel {
+  padding: 4rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-hotel h3 {
+  font-size: 1.8rem;
+  padding: 10px 0 20px;
+  text-transform: uppercase;
+}
+
+.hotel-details {
+  flex: 0.75;
+  padding-right: 2rem;
+}
+
+.hotel-details p {
+  margin-bottom: 2rem;
+}
+
+.hotel-location {
+  font-family: var(--cursive);
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.hotel-name {
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
+.hotel-booking {
+  flex: 0.25;
+  background-color: #f4f6fa;
+  padding: 4rem 2rem;
+  height: 100%;
+}
+
+.hotel-image {
+  width: 100%;
+  display: block;
+}
+
+.hotel-image img {
+  width: 100%;
+}
+.hotel-booking input {
+  background-color: #efefef;
+  border-color: #ddd;
+  border-radius: 0;
+  padding: 1.5rem;
+}
+
+.hotel-booking label {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.map-container {
+  padding: 2rem 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.exclusion-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exclusion-list .check {
+  color: var(--success);
+  margin-right: 10px;
+}
+
+.exclusion-list .not {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .hotel-booking {
+    display: none;
+  }
+  .hotel-details {
+    flex: 1;
+    padding-right: 0;
+  }
+}
+

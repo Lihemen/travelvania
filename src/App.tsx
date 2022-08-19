@@ -10,12 +10,14 @@ import { Error404 } from "./pages/not-found";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import { EditHotel } from "./pages/hotels/edit-hotel";
 
 const Home = lazy(() => import("./pages/home"));
 const HotelsList = lazy(() => import("./pages/hotels"));
 const Signin = lazy(() => import("./pages/sign-in"));
 const Signup = lazy(() => import("./pages/sign-up"));
 const AddHotelForm = lazy(() => import("./pages/hotels/create-hotel"));
+const SingleHotel = lazy(() => import("./pages/hotels/single-hotel"));
 
 function App() {
   return (
@@ -26,9 +28,12 @@ function App() {
         <Route path="hotels">
           <Route index element={<HotelsList />} />
           <Route path="create" element={<AddHotelForm />} />
+          <Route path=":id" element={<SingleHotel />} />
+          <Route path="edit/:id" element={<EditHotel />} />
         </Route>
         <Route path="auth">
           <Route index element={<Signin />} />
+          <Route path="sign-in" element={<Signin />} />
           <Route path="sign-up" element={<Signup />} />
         </Route>
         <Route path="not-found" element={<Error404 />} />

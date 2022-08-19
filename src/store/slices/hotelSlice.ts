@@ -10,14 +10,29 @@ const hotelSlice = createSlice({
       return [...state, action.payload];
     },
     deleteHotel: (state, action) => {
-      state.filter((el) => el.id !== action.payload);
+      state = state.filter((el) => el.id !== action.payload);
       return state;
     },
-    updateHotel: (state, action) => {},
+    updateHotel: (state, action) => {
+      state = state.map((el) => {
+        if (el.id === action.payload.id) {
+          return { ...el, ...action.payload };
+        }
+
+        return el;
+      });
+
+      return state;
+    },
+    getSingleHotel: (state, action) => {
+      const hotel = state.filter((el) => el.id === action.payload);
+      return hotel;
+    },
   },
 });
 
-export const { createHotel, deleteHotel, updateHotel } = hotelSlice.actions;
+export const { createHotel, deleteHotel, updateHotel, getSingleHotel } =
+  hotelSlice.actions;
 
 export const hotelReducer = hotelSlice.reducer;
 

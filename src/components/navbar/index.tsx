@@ -80,7 +80,10 @@ export const Navbar = () => {
           onClick={() => setShowMobileMenu((s) => !s)}
         />
       </nav>
-      <MobileMenu show={showMobileMenu} />
+      <MobileMenu
+        show={showMobileMenu}
+        close={() => setShowMobileMenu(false)}
+      />
     </header>
   );
 };

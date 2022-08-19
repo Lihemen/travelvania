@@ -1,49 +1,58 @@
 export const CityLocales = [
   {
-    value: "NYC",
+    value: "New Youk",
     label: "New York",
   },
   {
-    value: "SF",
+    value: "San Francisco",
     label: "San Francisco",
   },
   {
-    value: "LA",
+    value: "Los Angeles",
     label: "Los Angeles",
   },
   {
-    value: "ATX",
+    value: "Austin",
     label: "Austin",
   },
   {
-    value: "ABJ",
+    value: "Abuja",
     label: "Abuja",
   },
   {
-    value: "LON",
+    value: "London",
     label: "London",
   },
   {
-    value: "LAG",
+    value: "Lagos",
     label: "Lagos",
+  },
+  {
+    value: "Istanbul",
+    label: "Istanbul",
   },
 ];
 
 export const CountryLocales = [
   {
-    value: "USA",
+    value: "United States",
     label: "United States",
   },
   {
-    value: "GBR",
+    value: "Britain",
     label: "United Kingdom",
   },
   {
-    value: "NGA",
+    value: "Nigeria",
     label: "Nigeria",
   },
   {
-    value: "KEN",
+    value: "Kenya",
     label: "Kenya",
   },
+  {
+    value: "Turkey",
+    label: "Turkey",
+  },
 ];
+

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 export const useTitle = (title: string) => {
   useEffect(() => {
@@ -7,3 +7,4 @@ export const useTitle = (title: string) => {
     document.title = newTitle;
   }, [title]);
 };
+

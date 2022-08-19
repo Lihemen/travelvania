@@ -1,35 +1,22 @@
 import React from "react";
 import { useField } from "formik";
 
-import "./textinput.css";
-
 type Props = {
   label: string;
   name: string;
-  type?: string;
   id: string;
   placeholder?: string;
   required?: boolean;
-  disabled?: boolean;
-  autoComplete?: string;
 };
 
-export const TextInput: React.FC<Props> = ({ label, ...props }) => {
+export const TextArea: React.FC<Props> = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-
   return (
     <div className="input-group">
       <label htmlFor={props.name || props.id} className="input-label">
-        {label}
+        {label}{" "}
       </label>
-      <input
-        {...field}
-        {...props}
-        name={props.name}
-        value={field.value}
-        autoComplete={props.autoComplete}
-        className="form-input"
-      />
+      <textarea className="form-input" {...props} {...field}></textarea>
       {meta.touched && meta.error ? (
         <span className="text-danger">{meta.error}</span>
       ) : null}

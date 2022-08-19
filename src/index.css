@@ -1,8 +1,10 @@
 :root {
   --primary-color: #d71e0e;
   --secondary-color: black;
+  --success: #52965e;
   --border-radius: 5px;
   --transition: all 0.2s ease;
+  --cursive: "Cedarville Cursive", "cursive";
 }
 
 *,
@@ -43,7 +45,6 @@ button {
 input {
   outline: none;
   border: 1px solid #b0b1b3;
-  border-radius: var(--border-radius);
 }
 
 a {

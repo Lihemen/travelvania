@@ -7,27 +7,16 @@
 }
 .input-label {
   font-size: 1.05rem;
-}
-.input,
-textarea,
-select {
-  width: 100%;
-  padding: 1rem;
-  outline: none;
-  border: 1px solid #b0b1b3;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-family: inherit;
-  font-weight: 400;
-  color: #98a9bc;
-  background: transparent;
-  transition: all 0.2s ease-in-out;
+  color: #2b333f;
 }
 
 textarea {
   height: 150px;
+  column-span: 2;
+  resize: none;
 }
-.input:invalid {
+
+.form-input:invalid {
   border-color: #d71e0e;
 }
 

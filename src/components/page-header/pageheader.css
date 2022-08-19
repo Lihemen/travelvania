@@ -7,9 +7,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-position: center/center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-blend-mode: multiply;
 }
 
 .page-header ul {
@@ -26,6 +27,7 @@
   color: #fff;
   font-size: 1.2em;
   text-transform: capitalize;
+  text-align: center;
 }
 .page-header a:hover,
 .page-header a:active {

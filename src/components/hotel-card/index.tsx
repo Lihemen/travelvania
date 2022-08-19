@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 import { Hotel } from "../../types";
 
-type StarProps = {
-  rating: number;
-};
+// type StarProps = {
+//   rating: number;
+// };
 
 export const HotelCard: React.FC<Hotel> = (props) => {
   return (
