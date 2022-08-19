@@ -8,13 +8,14 @@ type Props = {
   label: string;
   name: string;
   id: string;
+  required?: boolean;
 };
 
 export const DateInput: React.FC<Props> = (props) => {
   const [field, meta, { setValue }] = useField(props);
   return (
     <div className="input-group">
-      <label htmlFor={props.name || props.id} className="form-label">
+      <label htmlFor={props.name || props.id} className="input-label">
         {props.label}
       </label>
       <DatePicker
@@ -24,7 +25,8 @@ export const DateInput: React.FC<Props> = (props) => {
         onChange={(val: any) => {
           setValue(val);
         }}
-        className="input"
+        className="form-input"
+        required={props.required}
         placeholderText="Select a date"
       />
       {meta.touched && meta.error ? (

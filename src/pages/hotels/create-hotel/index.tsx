@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import { v4 as uuidv4 } from "uuid";
 // import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -12,11 +13,12 @@ import PageHeader from "../../../components/page-header";
 import { Hotel } from "../../../types";
 import { CityLocales, CountryLocales } from "../../../constants";
 
-import { useAppDispatch } from "../../../hooks/useAppSelector";
+import { useAppDispatch } from "../../../hooks/useAppDispatch";
 import { createHotel } from "../../../store/slices/hotelSlice";
 
 import safari from "../../../assets/images/safari.webp";
 import hotelimg from "../../../assets/images/demohotel.webp";
+import { TextArea } from "../../../components/text-area";
 
 export default function AddHotelForm() {
   const dispatch = useAppDispatch();
@@ -27,11 +29,13 @@ export default function AddHotelForm() {
     address: "",
     city: "",
     country: "",
+    description: "",
     image: hotelimg,
     rating: 0,
   });
 
-  const create = (values: Hotel) => {
+  const create = (values: any) => {
+    console.log(values);
     dispatch(createHotel(values));
     toast.success("Hotel created successfully!");
   };
@@ -47,11 +51,31 @@ export default function AddHotelForm() {
 
       <div className="form">
         <h2>Create New Hotel</h2>
-        <Formik initialValues={hotel} onSubmit={create}>
+        <Formik
+          initialValues={hotel}
+          validationSchema={Yup.object({
+            name: Yup.string().required("Name is required"),
+            address: Yup.string().required("Address is required"),
+            city: Yup.string().required("City is required"),
+            country: Yup.string().required("Country is required"),
+            description: Yup.string().required("Description is required"),
+          })}
+          onSubmit={create}
+        >
           <Form>
             <div className="form-group">
-              <TextInput id="name" label="Name" name="name" />
-              <TextInput id="address" label="Address" name="address" />
+              <TextInput
+                id="name"
+                label="Name"
+                name="name"
+                placeholder="Hotel Cubana"
+              />
+              <TextInput
+                id="address"
+                label="Address"
+                name="address"
+                placeholder="Neverland"
+              />
             </div>
             <div className="form-group">
               <Dropdown
@@ -69,7 +93,12 @@ export default function AddHotelForm() {
                 id="country"
               />
             </div>
-            <div className="form-group"></div>
+            <TextArea
+              name="description"
+              id="description"
+              label="Description"
+              placeholder="Enter description"
+            />
             <Button text="Create" type="submit" />
           </Form>
         </Formik>

@@ -40,7 +40,7 @@
   text-align: center;
   margin: 10px 0;
   padding: 1rem;
-  background-color: #111;
+  background-color: #32aad6;
   color: #fff;
   font-size: 1rem;
   font-weight: 500;
@@ -61,5 +61,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.form-input,
+textarea,
+select {
+  width: 100%;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid #b0b1b3;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 400;
+  color: #98a9bc;
+  background: #efefef;
+  transition: all 0.2s ease-in-out;
 }
 

@@ -14,10 +14,15 @@ const hotelSlice = createSlice({
       return state;
     },
     updateHotel: (state, action) => {},
+    getSingleHotel: (state, action) => {
+      const hotel = state.filter((el) => el.id === action.payload);
+      return hotel;
+    },
   },
 });
 
-export const { createHotel, deleteHotel, updateHotel } = hotelSlice.actions;
+export const { createHotel, deleteHotel, updateHotel, getSingleHotel } =
+  hotelSlice.actions;
 
 export const hotelReducer = hotelSlice.reducer;
 

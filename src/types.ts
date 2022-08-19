@@ -4,6 +4,7 @@ export type Hotel = {
   address: string;
   city: string;
   country: string;
+  description: string;
   rating: number;
   image: string;
 };

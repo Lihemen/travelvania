@@ -1,19 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { useAppSelector } from "../../hooks/useAppDispatch";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 import PageHeader from "../../components/page-header";
+import { HotelCard } from "../../components/hotel-card";
+
 import safari from "../../assets/images/safari.webp";
+import "./style.css";
+import { Link } from "react-router-dom";
 
 export default function HotelsList() {
-  const hotels = useAppSelector((state) => state.hotelReducer);
+  const [chain, setChain] = useState("");
 
-  console.log(hotels);
+  const hotels = useAppSelector((state) => state.hotelReducer);
+  const [hotelsList, setHotelsList] = useState(hotels);
+
+  const filter = (chain: string) => {
+    setHotelsList(hotels);
+    setHotelsList(hotels.filter((hotel) => hotel.name.includes(chain)));
+  };
 
   return (
     <>
       <PageHeader image={safari} name="All Hotels" link="hotels" />
-      <h2>List of Hotels</h2>
+
+      {hotelsList.length < 1 && (
+        <div className="no-hotels">
+          <h3>No Hotels Found</h3>
+          <Link to="create">Create</Link>
+        </div>
+      )}
+      {hotelsList && (
+        <>
+          <div className="filter">
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Enter chain..."
+              value={chain}
+              onChange={(e) => setChain(e.target.value)}
+            />
+            <button className="btn" type="submit" onClick={() => filter(chain)}>
+              Filter
+            </button>
+          </div>
+          <div className="hotels-grid">
+            {hotelsList.map((hotel) => (
+              <HotelCard key={hotel.id} {...hotel} />
+            ))}
+          </div>
+        </>
+      )}
     </>
   );
 }

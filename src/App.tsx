@@ -16,6 +16,7 @@ const HotelsList = lazy(() => import("./pages/hotels"));
 const Signin = lazy(() => import("./pages/sign-in"));
 const Signup = lazy(() => import("./pages/sign-up"));
 const AddHotelForm = lazy(() => import("./pages/hotels/create-hotel"));
+const SingleHotel = lazy(() => import("./pages/hotels/single-hotel"));
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="hotels">
           <Route index element={<HotelsList />} />
           <Route path="create" element={<AddHotelForm />} />
+          <Route path=":id" element={<SingleHotel />} />
         </Route>
         <Route path="auth">
           <Route index element={<Signin />} />
