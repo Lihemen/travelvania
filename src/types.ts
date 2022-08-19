@@ -31,6 +31,11 @@ export type Review = {
   text: string;
 };
 
+export type HotelChain = {
+  name: string;
+  hotels?: Hotel[];
+};
+
 export interface Auth {
   id: string;
   email: string;
