@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { v4 as uuidv4 } from "uuid";
@@ -15,6 +15,7 @@ import { Hotel } from "../../../types";
 import { CityLocales, CountryLocales } from "../../../constants";
 
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
+import { useAuth } from "../../../hooks/useAuth";
 import { createHotel } from "../../../store/slices/hotelSlice";
 
 import safari from "../../../assets/images/safari.webp";
@@ -23,6 +24,7 @@ import hotelimg from "../../../assets/images/demohotel.webp";
 export default function AddHotelForm() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { authenticated } = useAuth();
 
   const [hotel] = useState<Hotel>({
     id: uuidv4(),
@@ -36,10 +38,15 @@ export default function AddHotelForm() {
   });
 
   const create = (values: any) => {
-    console.log(values);
     dispatch(createHotel(values));
     toast.success("Hotel created successfully!");
   };
+
+  useEffect(() => {
+    if (!authenticated) {
+      navigate("/auth/sign-in");
+    }
+  });
 
   return (
     <>

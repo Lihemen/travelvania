@@ -35,8 +35,8 @@ export const MobileMenu: React.FC<MenuProps> = (props) => {
       <ul>
         <FaTimes onClick={props.close} className="close" />
         <ActiveNavLink to="/" name="home" close={props.close} />
-        <ActiveNavLink to="/about" name="about" close={props.close} />
         <ActiveNavLink to="/hotels" name="hotels" close={props.close} />
+        <ActiveNavLink to="/about" name="about" close={props.close} />
         <ActiveNavLink to="/contact" name="contact" close={props.close} />
       </ul>
     </nav>

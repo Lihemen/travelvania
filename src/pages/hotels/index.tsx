@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useAppSelector } from "../../hooks/useAppSelector";
 
@@ -7,9 +8,9 @@ import { HotelCard } from "../../components/hotel-card";
 
 import safari from "../../assets/images/safari.webp";
 import "./style.css";
-import { Link } from "react-router-dom";
 
 export default function HotelsList() {
+  const navigate = useNavigate();
   const [chain, setChain] = useState("");
 
   const hotels = useAppSelector((state) => state.hotelReducer);
@@ -40,9 +41,22 @@ export default function HotelsList() {
               value={chain}
               onChange={(e) => setChain(e.target.value)}
             />
-            <button className="btn" type="submit" onClick={() => filter(chain)}>
-              Filter
-            </button>
+            <div className="form-group">
+              <button
+                className="btn"
+                type="submit"
+                onClick={() => filter(chain)}
+              >
+                Filter
+              </button>
+              <button
+                className="btn btn-success"
+                type="button"
+                onClick={() => navigate("create")}
+              >
+                Create
+              </button>
+            </div>
           </div>
           <div className="hotels-grid">
             {hotelsList.map((hotel) => (

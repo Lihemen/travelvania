@@ -19,7 +19,7 @@ export default function SignupForm() {
 
     toast.success("User created");
 
-    setTimeout(() => navigate("/sign-in"), 2000);
+    setTimeout(() => navigate("/auth/sign-in"), 2000);
   };
   return (
     <div className="form">
@@ -68,7 +68,7 @@ export default function SignupForm() {
             placeholder="Your Password"
           />
           <p>
-            <Link to="/auth">Already have an account?</Link>
+            <Link to="/auth/sign-in">Already have an account?</Link>
           </p>
           <Button text="sign up" type="submit" />
         </Form>

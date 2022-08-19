@@ -24,7 +24,6 @@ export default function SigninForm() {
     if (!user) {
       toast.error("Invalid email or password");
     }
-    // change to redux action
     dispatch(login(user));
 
     toast.success("Login success");
@@ -66,10 +65,10 @@ export default function SigninForm() {
               label="Remember me"
               type="checkbox"
             />
-            <Link to="forgot-password">Forgot Password?</Link>
+            <Link to="/auth/forgot-password">Forgot Password?</Link>
           </div>
           <p>
-            <Link to="sign-up">Don't have an account?</Link>
+            <Link to="/auth/sign-up">Don't have an account?</Link>
           </p>
           <Button text="sign in" type="submit" />
         </Form>
