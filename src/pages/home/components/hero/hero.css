@@ -38,24 +38,24 @@
   display: grid;
   grid-template-columns: repeat(4, 200px);
   gap: 2px;
-  align-items: flex-end;
+  align-items: center;
   text-align: left;
 }
 .reservation-checker .form-input {
   width: 200px;
-  padding: 1.5rem 1rem;
   border: none;
   outline: none;
   font-size: 1rem;
   font-weight: 400;
   color: #121212;
-  border-radius: 0;
+  margin-bottom: 0;
+}
+.clearfix {
+  padding-top: 20px;
 }
 
-.reservation-checker > button {
+.clearfix button {
   border: none;
-  margin: 1px;
-  padding: 1.5rem 1rem;
   text-transform: uppercase;
 }
 

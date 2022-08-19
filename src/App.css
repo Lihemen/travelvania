@@ -47,6 +47,11 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
+.btn:hover {
+  border-color: #32aad6;
+  color: #32aad6;
+  background-color: #fff;
+}
 
 .btn-small {
   width: max-content;
@@ -55,6 +60,26 @@
 .btn-large {
   width: 100%;
   padding: 1.2rem;
+}
+
+.btn-danger {
+  background-color: var(--primary-color);
+}
+.btn-danger:hover,
+.btn-danger:active {
+  border-color: var(--primary-color);
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
+.btn-success {
+  background-color: var(--success);
+}
+.btn-success:hover,
+.btn-success:active {
+  border-color: var(--success);
+  background-color: #fff;
+  color: var(--success);
 }
 
 .d-flex-justify-content {
@@ -73,8 +98,13 @@ select {
   font-size: 1rem;
   font-family: inherit;
   font-weight: 400;
-  color: #98a9bc;
+  color: #333;
   background: #efefef;
   transition: all 0.2s ease-in-out;
+}
+
+.action-buttons {
+  display: flex;
+  width: 100%;
 }
 

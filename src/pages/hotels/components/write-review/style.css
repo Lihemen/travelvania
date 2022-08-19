@@ -1,0 +1,10 @@
+.review-form {
+  background-color: #f4f6fa;
+  padding: 3rem;
+}
+
+.review-form input,
+.review-form textarea {
+  background-color: #fff;
+}
+

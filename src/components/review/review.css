@@ -1,0 +1,25 @@
+.review {
+  border-bottom: 1px solid #ddd;
+  padding: 2rem 0;
+}
+
+.review .image-container {
+  display: flex;
+  align-items: flex-end;
+}
+.review .image-container img {
+  width: 80px;
+}
+
+.review h3 {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.review p {
+  color: #ddd;
+}
+
+.review-date {
+  color: #32aad6;
+}

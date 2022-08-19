@@ -31,7 +31,9 @@ export const Hero = () => {
             defaultValue="Choose a location"
             options={CityLocales}
           />
-          <Button type="submit" text="check" />
+          <div className="clearfix">
+            <Button type="submit" text="check" />
+          </div>
         </Form>
       </Formik>
     </section>

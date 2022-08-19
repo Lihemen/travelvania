@@ -3,7 +3,7 @@ import Geocode from "react-geocode";
 import GoogleMapReact from "google-map-react";
 import "./map.css";
 
-Geocode.setApiKey("AIzaSyD0jXG6tZX5eypxrx-NqpzHsyFAWKT1Y2w");
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY ?? "");
 Geocode.setLanguage("en");
 
 type MarkerProps = {
@@ -33,15 +33,14 @@ export const Map = (props: { address: string }) => {
     lng: 7.434872271164185,
   });
 
-  const recalibrate = async () => {
-    const response = await Geocode.fromAddress(props.address);
-    const { lat, lng } = response.results[0].geometry.location;
-    setCenter({ lat, lng });
-  };
-
   useEffect(() => {
+    const recalibrate = async () => {
+      const response = await Geocode.fromAddress(props.address);
+      const { lat, lng } = response.results[0].geometry.location;
+      setCenter({ lat, lng });
+    };
     recalibrate();
-  }, []);
+  }, [props.address]);
 
   const getMapOptions = () => {
     return {
@@ -60,7 +59,7 @@ export const Map = (props: { address: string }) => {
   return (
     <div className="map">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyD0jXG6tZX5eypxrx-NqpzHsyFAWKT1Y2w" }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY ?? "" }}
         center={center}
         defaultZoom={18}
         options={getMapOptions}

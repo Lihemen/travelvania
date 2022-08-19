@@ -45,7 +45,6 @@ button {
 input {
   outline: none;
   border: 1px solid #b0b1b3;
-  border-radius: var(--border-radius);
 }
 
 a {

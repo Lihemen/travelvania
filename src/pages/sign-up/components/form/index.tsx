@@ -1,14 +1,25 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { TextInput } from "../../../../components/textinput";
 import { Button } from "../../../../components/button";
 
+import { useAppDispatch } from "../../../../hooks/useAppDispatch";
+import { registerUser } from "../../../../store/slices/userSlice";
+
 export default function SignupForm() {
-  const signup = () => {
-    console.log("submit");
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const signup = (values: any) => {
+    dispatch(registerUser(values));
+
+    toast.success("User created");
+
+    setTimeout(() => navigate("/sign-in"), 2000);
   };
   return (
     <div className="form">
@@ -28,12 +39,16 @@ export default function SignupForm() {
               name="firstName"
               label="First Name"
               id="firstName"
+              type="text"
+              autoComplete="given-name"
               placeholder="First Name"
             />
             <TextInput
               name="lastName"
               label="Last Name"
               id="lastName"
+              type="text"
+              autoComplete="family-name"
               placeholder="Last Name"
             />
           </div>
@@ -41,12 +56,15 @@ export default function SignupForm() {
             name="email"
             label="Email"
             id="email"
+            type="email"
+            autoComplete="email"
             placeholder="Your Email"
           />
           <TextInput
             name="password"
             label="Password"
             id="password"
+            type="password"
             placeholder="Your Password"
           />
           <p>

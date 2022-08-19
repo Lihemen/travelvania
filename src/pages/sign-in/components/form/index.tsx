@@ -1,16 +1,35 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { TextInput } from "../../../../components/textinput";
 import { Button } from "../../../../components/button";
 import { Checkbox } from "../../../../components/checkbox";
 
+import { useAppSelector } from "../../../../hooks/useAppSelector";
+import { useAppDispatch } from "../../../../hooks/useAppDispatch";
+import { login } from "../../../../store/slices/authSlice";
+
 export default function SigninForm() {
-  const login = () => {
+  const navigate = useNavigate();
+
+  const users = useAppSelector((state) => state.userReducer);
+  const dispatch = useAppDispatch();
+
+  const loginUser = (values: any): void => {
+    const user = users.find((el) => el.email === values.email);
+
+    if (!user) {
+      toast.error("Invalid email or password");
+    }
     // change to redux action
-    console.log("login");
+    dispatch(login(user));
+
+    toast.success("Login success");
+
+    setTimeout(() => navigate("/hotels"), 2000);
   };
   return (
     <div className="form">
@@ -22,7 +41,7 @@ export default function SigninForm() {
             .required("Password is required")
             .min(8, "Password must be at least 8 characters"),
         })}
-        onSubmit={login}
+        onSubmit={loginUser}
       >
         <Form>
           <TextInput

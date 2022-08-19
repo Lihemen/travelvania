@@ -1,59 +1,46 @@
-import React, { useState } from "react";
+import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { v4 as uuidv4 } from "uuid";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import PageHeader from "../../../components/page-header";
 import { TextInput } from "../../../components/textinput";
 import { Button } from "../../../components/button";
 import { Dropdown } from "../../../components/dropdown";
-import PageHeader from "../../../components/page-header";
 import { TextArea } from "../../../components/text-area";
 
-import { Hotel } from "../../../types";
+import { useAppDispatch } from "../../../hooks/useAppDispatch";
+import { useAppSelector } from "../../../hooks/useAppSelector";
+import { updateHotel } from "../../../store/slices/hotelSlice";
+
 import { CityLocales, CountryLocales } from "../../../constants";
 
-import { useAppDispatch } from "../../../hooks/useAppDispatch";
-import { createHotel } from "../../../store/slices/hotelSlice";
-
 import safari from "../../../assets/images/safari.webp";
-import hotelimg from "../../../assets/images/demohotel.webp";
 
-export default function AddHotelForm() {
-  const dispatch = useAppDispatch();
+export const EditHotel = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const [hotel] = useState<Hotel>({
-    id: uuidv4(),
-    name: "",
-    address: "",
-    city: "",
-    country: "",
-    description: "",
-    image: hotelimg,
-    rating: 0,
-  });
+  const dispatch = useAppDispatch();
+  const hotels = useAppSelector((state) => state.hotelReducer);
 
-  const create = (values: any) => {
-    console.log(values);
-    dispatch(createHotel(values));
-    toast.success("Hotel created successfully!");
-  };
+  const hotelToEdit = hotels.find((el) => el.id === id);
 
   return (
     <>
       <PageHeader
-        name="Create New Hotel"
-        link="hotels/create"
+        name="Edit Hotel"
+        link={`hotels/edit/${id}`}
         image={safari}
         parent_link="hotels"
       />
 
       <div className="form">
-        <h2>Create New Hotel</h2>
+        <h2>Edit Hotel Details</h2>
+
         <Formik
-          initialValues={hotel}
+          initialValues={{ ...hotelToEdit }}
           validationSchema={Yup.object({
             name: Yup.string().required("Name is required"),
             address: Yup.string().required("Address is required"),
@@ -62,8 +49,9 @@ export default function AddHotelForm() {
             description: Yup.string().required("Description is required"),
           })}
           onSubmit={(values) => {
-            create(values);
-            navigate("/hotels");
+            dispatch(updateHotel(values));
+            toast.success("Update Successful");
+            setTimeout(() => navigate(`/hotels/${id}`), 1500);
           }}
         >
           <Form>
@@ -85,7 +73,7 @@ export default function AddHotelForm() {
               <Dropdown
                 name="city"
                 options={CityLocales}
-                defaultValue="Choose City"
+                defaultValue={hotelToEdit?.city || "Choose City"}
                 label="City"
                 id="city"
               />
@@ -103,11 +91,11 @@ export default function AddHotelForm() {
               label="Description"
               placeholder="Enter description"
             />
-            <Button text="CREATE" type="submit" />
+            <Button text="UPDATE" type="submit" />
           </Form>
         </Formik>
       </div>
     </>
   );
-}
+};
 

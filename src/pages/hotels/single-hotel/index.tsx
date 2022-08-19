@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { useAppSelector } from "../../../hooks/useAppSelector";
+import { useTitle } from "../../../hooks/useTitle";
+
 import PageHeader from "../../../components/page-header";
 
 import { HotelOverview } from "../components/hotel-overview";
@@ -16,6 +18,8 @@ const SingleHotel = () => {
   const hotels = useAppSelector((state) => state.hotelReducer);
 
   const hotel = hotels.find((hotel) => hotel.id === id);
+
+  useTitle(hotel?.name || "Hotel Detail");
 
   useEffect(() => {
     if (!hotel) {
